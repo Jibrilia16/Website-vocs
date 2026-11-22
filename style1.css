@@ -1,0 +1,213 @@
+/* ===== PALET AKSEN =====
+   emas  : #fbbf24  (aksen utama)
+   emas muda : #fde68a (teks/link/judul kecil)
+   indigo tua: #1e1b4b (teks di atas emas, footer)
+   pink  : #f472b6  (aksen pendukung)
+*/
+
+/* ===== DASAR ===== */
+body{
+    background:radial-gradient(circle at top left,#6a5cf0 0,transparent 50%),radial-gradient(circle at bottom right,#b04fd6 0,transparent 50%),#3b38a8;
+    background-attachment:fixed;
+    margin:0;
+    font-family:Verdana,Geneva,Tahoma,sans-serif;
+    color:whitesmoke;
+    line-height:1.6;
+}
+a{color:#fde68a}
+:focus-visible{outline:3px solid #fbbf24;outline-offset:2px}
+img{max-width:100%;height:auto}
+
+/* ===== HEADER & MENU ===== */
+.site-header{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:center;
+    gap:.8rem;
+    background:linear-gradient(90deg,#5e81b4,#2a2480);
+    border-bottom:3px solid rgb(194, 143, 50);
+    padding:.8rem 1.2rem;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+.brand{color:#fbbf24;font-weight:700;font-size:1.2rem}
+.site-nav ul{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+.site-nav a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    padding:.45rem 1.1rem;
+    border-radius:999px;
+    border:2px solid rgba(255,255,255,.35);
+    transition:background .2s,color .2s;
+}
+.site-nav a:hover{background:rgba(255,255,255,.2)}
+.site-nav a.aktif{background:#fbbf24;border-color:#fbbf24;color:#1e1b4b}
+.logo{
+    width:45px;height:45px;display:flex;justify-content:center;align-items:center;
+    border-radius:50%;background: navy;color:white;font-size:22px;font-weight:bold;
+    animation:spinner 5s linear infinite;
+}
+@keyframes spinner{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+/* ===== BERANDA (HERO) ===== */
+.sampul{
+    text-align:center;
+    color:white;
+    padding:5rem 1rem;
+    background:linear-gradient(rgba(20,18,58,.6),rgba(90,30,140,.75)),url("images/sabat-fakultas.jpg") center/cover;
+}
+.sampul h1{font-size:clamp(2rem,7vw,3.8rem);margin:.5rem 0}
+.floating{display:inline-block;font-size:3rem;animation:floating 3s ease-in-out infinite}
+@keyframes floating{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+.typing{
+    display:inline-block;
+    width:25ch;
+    max-width:100%;
+    font-size:clamp(1rem,4.2vw,1.5rem);
+    font-weight:700;
+    color:#fbbf24;
+    white-space:nowrap;
+    overflow:hidden;
+    border-right:3px solid white;
+    animation:typing 3s steps(25) 1,blink .5s step-end infinite alternate;
+}
+@keyframes typing{from{width:0}to{width:25ch}}
+@keyframes blink{50%{border-color:transparent}}
+
+/* ===== TOMBOL ===== */
+/* tombol sekunder: outline putih, supaya tidak menyaingi tombol utama */
+.btn{
+    display:inline-block;
+    background:transparent;
+    color:white;
+    padding:.6rem 1.3rem;
+    text-decoration:none;
+    font-weight:700;
+    border-radius:999px;
+    border:2px solid rgba(255,255,255,.7);
+    transition:background .2s,color .2s,transform .2s;
+}
+.btn:hover{background:#fde68a;border-color:#fde68a;color:#1e1b4b;transform:translateY(-2px)}
+/* tombol utama: emas solid */
+.btn-utama{background:#fbbf24;border-color:#fbbf24;color:#1e1b4b}
+.pager{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:3rem}
+
+/* ===== JUDUL & KARTU ===== */
+h2{border-bottom:3px solid #fbbf24;display:inline-block;padding-bottom:4px;margin-top:2.5rem}
+.card{
+    background:linear-gradient(160deg,#4338ca,#1f1d5c);
+    color:whitesmoke;
+    border:1px solid rgba(255,255,255,.2);
+    border-top:6px solid #fbbf24;
+    border-radius:14px;
+    padding:1.4rem;
+}
+.card h3{margin-top:0;color:#fde68a}
+.col-md-4:nth-child(2) .card{border-top-color:#f472b6}
+.col-md-4:nth-child(2) .card h3{color:#f9a8d4}
+.col-md-4:nth-child(3) .card{border-top-color:#fb923c}
+.col-md-4:nth-child(3) .card h3{color:#fdba74}
+.langkah{display:flex;gap:1rem;align-items:center;background:rgba(255,255,255,.12);border-radius:12px;padding:1rem;margin-bottom:.8rem}
+.langkah b{flex:none;width:2.5rem;height:2.5rem;border-radius:50%;background:#fbbf24;color:#1e1b4b;display:grid;place-items:center}
+
+/* ===== FORM ===== */
+fieldset{background:white;color:#222;border:3px solid navy;border-radius:10px;padding:1.2rem;margin-bottom:1.2rem}
+legend{float:none;width:auto;padding:0 .6rem;color:#1a1a8c;font-weight:bold}
+.form-label{margin-top:.9rem;font-weight:bold}
+input,select,textarea{width:100%;padding:.6rem;border:1px solid blue;border-radius:5px;font-family:inherit;font-size:1rem}
+textarea{resize:vertical}
+button{background:#1a1a8c;color:white;padding:.7rem 1.2rem;border:none;border-radius:5px;cursor:pointer;transition:background .2s,color .2s}
+button:hover{background:#fbbf24;color:#1e1b4b}
+fieldset button{margin-top:1.2rem}
+.modal-content{background:#1f1d5c;color:whitesmoke}
+
+/* ===== TABEL (cadangan) ===== */
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid blue;padding:.6rem .8rem;text-align:left}
+thead th{background:navy;color:white}
+
+/* ===== GALERI SLIDER ===== */
+.slider-section{padding:1rem 1rem 3rem;text-align:center}
+.slider{width:100%;max-width:1000px;height:450px;margin:1.5rem auto 0;overflow:hidden;border-radius:15px;border:4px solid #fbbf24}
+.slides{display:flex;width:800%;height:100%;animation:slide 24s infinite}
+.slides img{width:12.5%;height:100%;object-fit:cover}
+@keyframes slide{
+    0%,10%{transform:translateX(0)}
+    12.5%,22.5%{transform:translateX(-12.5%)}
+    25%,35%{transform:translateX(-25%)}
+    37.5%,47.5%{transform:translateX(-37.5%)}
+    50%,60%{transform:translateX(-50%)}
+    62.5%,72.5%{transform:translateX(-62.5%)}
+    75%,85%{transform:translateX(-75%)}
+    87.5%,97.5%{transform:translateX(-87.5%)}
+    100%{transform:translateX(0)}
+}
+
+/* ===== FOOTER ===== */
+.site-footer{background:#1e1b4b;color:white;text-align:center;padding:1.2rem;margin-top:3rem;border-top:3px solid #fbbf24}
+.site-footer a{color:#fbbf24;font-weight:700}
+.site-footer p{margin:.2rem 0}
+
+@media (max-width:768px){.slider{height:260px}.site-nav ul{justify-content:flex-start}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.typing{width:auto;border:0}}
+
+/* ===== HALAMAN DAFTAR ===== */
+.form-card{
+    background:white;
+    color:#222;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);
+}
+.form-card .bar{
+    background:linear-gradient(90deg,#fbbf24,#f472b6);
+    color:#1e1b4b;
+    padding:1rem 1.4rem;
+}
+.form-card .bar h3{margin:0;font-size:1.3rem}
+.form-card .bar p{margin:0;font-size:.9rem}
+.form-card .isi{padding:1.4rem}
+.form-card .form-label{margin:0 0 .3rem;font-weight:bold;color:#1a1a8c}
+.form-card .form-control,.form-card .form-select{border:2px solid #d9d6f5;border-radius:10px}
+.form-card .form-control:focus,.form-card .form-select:focus{border-color:#f472b6;box-shadow:0 0 0 .2rem rgba(244,114,182,.25)}
+.btn-kirim{
+    width:100%;
+    background:linear-gradient(90deg,#4338ca,#b04fd6);
+    color:white;
+    font-weight:700;
+    font-size:1.1rem;
+    padding:.9rem;
+    border-radius:12px;
+}
+.btn-kirim:hover{background:linear-gradient(90deg,#fbbf24,#f472b6);color:#1e1b4b}
+
+.panel-pendaftar{
+    background:linear-gradient(160deg,#4338ca,#1f1d5c);
+    border:1px solid rgba(255,255,255,.2);
+    border-top:6px solid #fbbf24;
+    border-radius:18px;
+    padding:1.4rem;
+    position:sticky;
+    top:100px;
+}
+.jumlah-besar{font-size:3rem;font-weight:800;color:#fbbf24;line-height:1}
+.pendaftar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:.8rem;
+    background:rgba(255,255,255,.12);
+    border-radius:10px;
+    padding:.7rem .9rem;
+    margin-top:.6rem;
+}
+.pendaftar small{color:#d9d6f5}
+.kosong{background:rgba(255,255,255,.1);border-radius:10px;padding:1rem;margin:.8rem 0 0;text-align:center}
+.btn-hapus{background:#ff5470;color:white;font-weight:700;padding:.35rem .9rem;border-radius:999px}
+.btn-hapus:hover{background:white;color:#ff5470}
+.btn-hapus-semua{background:transparent;border:2px solid #ff9ec2;color:#ff9ec2;border-radius:999px;margin-top:1rem;padding:.4rem 1rem}
+.btn-hapus-semua:hover{background:#ff9ec2;color:#14123a}

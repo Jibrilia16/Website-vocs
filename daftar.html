@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Open Audition Voice of Computer Science - Singer/Choir, Pianist, Multimedia." />
+    <title>Daftar - Voice of Computer Science</title>
+    <!-- Bootstrap CSS (dipanggil dulu, supaya style1.css bisa menimpa) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style1.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="d-flex align-items-center gap-2">
+        <div class="logo">V</div>
+        <div class="brand">Voice Of Computer Science</div>
+      </div>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+          <li><a href="kategori.html">Kategori</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="daftar.html" class="aktif">Daftar</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h2>Formulir Pendaftaran</h2>
+      <div class="row g-4 mt-1">
+
+        <!-- KIRI: FORMULIR -->
+        <div class="col-lg-7">
+          <div class="form-card">
+            <div class="bar">
+              <h3>🎤 Daftar Open Audition</h3>
+              <p>Isi data dengan benar, lalu tekan Kirim.</p>
+            </div>
+            <form id="formDaftar" class="isi needs-validation" action="#" method="post" novalidate>
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label" for="nama">Nama Lengkap</label>
+                  <input class="form-control" type="text" id="nama" name="nama" placeholder="Contoh: Karambut, Jibrilia" required minlength="3" />
+                  <div class="invalid-feedback">Isi nama minimal 3 huruf.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="nim">NIM</label>
+                  <input class="form-control" type="text" id="nim" name="nim" placeholder="Angka saja" required pattern="[0-9]{6,12}" inputmode="numeric" />
+                  <div class="invalid-feedback">NIM angka 6 sampai 12 digit dan belum pernah mendaftar.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="prodi">Program Studi</label>
+                  <select class="form-select" id="prodi" name="prodi">
+                    <option>Informatika</option>
+                    <option>Sistem Informasi</option>
+                    <option>Teknologi Informasi</option>
+                    <option>Lainnya</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="Divisi">Divisi</label>
+                  <select class="form-select" id="Divisi" name="Divisi">
+                    <option>Singers - Sopran</option>
+                    <option>Singers - Alto</option>
+                    <option>Singers - Tenor</option>
+                    <option>Singers - Bass</option>
+                    <option>Multimedia</option>
+                    <option>Pianist</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="email">Email</label>
+                  <input class="form-control" type="email" id="email" name="email" placeholder="nama@email.com" required />
+                  <div class="invalid-feedback">Masukkan email yang valid.</div>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="telp">No. HP / WhatsApp</label>
+                  <input class="form-control" type="tel" id="telp" name="telp" placeholder="08xxxxxxxxxx" required pattern="[0-9+]{9,15}" />
+                  <div class="invalid-feedback">Isi nomor 9 sampai 15 digit.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="catatan">Catatan (opsional)</label>
+                  <textarea class="form-control" id="catatan" name="catatan" rows="3"></textarea>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn-kirim">Kirim Pendaftaran</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- KANAN: DAFTAR PENDAFTAR -->
+        <div class="col-lg-5">
+          <aside class="panel-pendaftar">
+            <div class="jumlah-besar" id="jumlah">0</div>
+            <p class="mb-0">pendaftar tersimpan di perangkat ini</p>
+            <div id="daftarPendaftar"></div>
+            <button type="button" class="btn-hapus-semua" id="hapusSemua">Hapus semua</button>
+          </aside>
+        </div>
+
+      </div>
+    </main>
+
+    <div class="modal fade" id="modalSukses" tabindex="-1" aria-labelledby="judulSukses" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered"><div class="modal-content p-3">
+        <h2 class="h4" id="judulSukses" style="border:0">Pendaftaran terkirim</h2>
+        <p>Terima kasih, <strong id="namaSukses"></strong>. Kami akan menghubungimu lewat email atau WhatsApp.</p>
+        <button type="button" class="btn btn-utama align-self-start" data-bs-dismiss="modal">Tutup</button>
+      </div></div>
+    </div>
+
+    <div class="container pager">
+      <a class="btn" href="galeri.html">← Kembali ke Galeri</a>
+      <a class="btn btn-utama" href="index.html">Kembali ke Home</a>
+    </div>
+
+    <footer class="site-footer">
+      <p>Dikelola oleh Voice Of Computer Science</p>
+      <p>Email: <a href="mailto:vocs@gmail.com">vocs@gmail.com</a></p>
+      <p>Telp: <a href="tel:+628123343433">08123343433</a></p>
+      <a href="https://instagram.com/vocs07" target="_blank" rel="noopener">Instagram</a>
+    </footer>
+
+    <!-- Bootstrap JS & JS sendiri -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
